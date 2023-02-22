@@ -9,18 +9,18 @@ class AllcatsController extends GetxController {
     super.onInit();
   }
 
-  // var isLoading = false.obs;
+  var isLoading = true.obs;
   var mycatlist = <CatModel>[].obs;
 
   void fetchAllcats() async {
     try {
-      // isLoading(true);
+      isLoading(true);
       var allcats = await CatApi.fetchAllcats();
       if (allcats != null) {
         mycatlist.assignAll(allcats);
       }
     } finally {
-      // isLoading(false);
+      isLoading(false);
     }
   }
 }
