@@ -1,3 +1,4 @@
+import 'package:apifetch/post/postview.dart';
 import 'package:apifetch/uniq_categories/uniqcat_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,6 +31,8 @@ class _UniqCategoriesState extends State<UniqCategories> {
             return Padding(
               padding: const EdgeInsets.all(15.0),
               child: ListView.separated(
+                reverse: true,
+                shrinkWrap: true,
                 separatorBuilder: (context, index) {
                   return SizedBox(
                     height: 5,
@@ -39,18 +42,23 @@ class _UniqCategoriesState extends State<UniqCategories> {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Container(
-                      width: screenWidth,
-                      height: screenHeight * 0.050,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                      ),
-                      child: Center(
-                        child: Text(
-                          uniqCatController.uniqueList[index].toString(),
-                          style: TextStyle(
-                            fontSize: 22,
-                            color: Colors.white,
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.to(() => Postview(), arguments: index);
+                      },
+                      child: Container(
+                        width: screenWidth,
+                        height: screenHeight * 0.050,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                        ),
+                        child: Center(
+                          child: Text(
+                            uniqCatController.uniqueList[index].toString(),
+                            style: TextStyle(
+                              fontSize: 22,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
