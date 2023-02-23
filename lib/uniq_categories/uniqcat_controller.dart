@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:apifetch/uniq_categories/uniqcat_network.dart';
 import 'package:get/get.dart';
 import 'uniqcatmodel.dart';
@@ -38,4 +40,8 @@ class UniqCatController extends GetxController {
       isLoading(false);
     }
   }
+
+  /// Fetch post data
+
+  void fetchallPost() async {}
 }
